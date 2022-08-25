@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.hexademical.app2.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,6 +43,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding?.plusBtn?.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToPlusFragment()
+            view.findNavController().navigate(action)
+        }
+
+        binding?.minusBtn?.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToPlusFragment()
+            view.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
