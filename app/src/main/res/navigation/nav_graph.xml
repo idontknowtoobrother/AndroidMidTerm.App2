@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.hexademical.app2.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_plusFragment"
+            app:destination="@id/plusFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_minusFragment"
+            app:destination="@id/minusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plusFragment"
+        android:name="com.hexademical.app2.PlusFragment"
+        android:label="fragment_plus"
+        tools:layout="@layout/fragment_plus" >
+        <action
+            android:id="@+id/action_plusFragment_to_answerFragment"
+            app:destination="@id/answerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/answerFragment"
+        android:name="com.hexademical.app2.AnswerFragment"
+        android:label="fragment_answer"
+        tools:layout="@layout/fragment_answer" >
+        <action
+            android:id="@+id/action_answerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/minusFragment"
+        android:name="com.hexademical.app2.MinusFragment"
+        android:label="fragment_minus"
+        tools:layout="@layout/fragment_minus" >
+        <action
+            android:id="@+id/action_minusFragment_to_answerFragment"
+            app:destination="@id/answerFragment" />
+    </fragment>
+</navigation>
