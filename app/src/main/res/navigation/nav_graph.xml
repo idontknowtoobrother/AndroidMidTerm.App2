@@ -25,6 +25,11 @@
         <action
             android:id="@+id/action_plusFragment_to_answerFragment"
             app:destination="@id/answerFragment" />
+        <argument
+            android:name="result_number"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/answerFragment"
@@ -34,6 +39,11 @@
         <action
             android:id="@+id/action_answerFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="result_number"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/minusFragment"
@@ -43,5 +53,10 @@
         <action
             android:id="@+id/action_minusFragment_to_answerFragment"
             app:destination="@id/answerFragment" />
+        <argument
+            android:name="result_number"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

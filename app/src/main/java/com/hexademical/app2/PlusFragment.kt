@@ -1,11 +1,17 @@
 package com.hexademical.app2
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.hexademical.app2.databinding.FragmentPlusBinding
+import kotlin.reflect.typeOf
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,6 +48,18 @@ class PlusFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding?.calAnswerBtn?.setOnClickListener {
+            val number1 = view.findViewById<TextView>(R.id.number_1).text.toString().toDoubleOrNull()
+            val number2 = view.findViewById<TextView>(R.id.number_2).text.toString().toDoubleOrNull()
+            if(number2 == null || number1 == null){
+                return@setOnClickListener
+            }
+
+            val result = "%.2f".format(number1+number2)
+
+            val action = PlusFragmentDirections.actionPlusFragmentToAnswerFragment(result)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

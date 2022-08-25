@@ -1,10 +1,13 @@
 package com.hexademical.app2
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.hexademical.app2.databinding.FragmentMinusBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,6 +45,17 @@ class MinusFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding?.calAnswerBtn?.setOnClickListener {
+            val number1 = view.findViewById<TextView>(R.id.number_1).text.toString().toDoubleOrNull()
+            val number2 = view.findViewById<TextView>(R.id.number_2).text.toString().toDoubleOrNull()
+            if(number2 == null || number1 == null){
+                return@setOnClickListener
+            }
+            val result = "%.2f".format(number1-number2)
+
+            val action = MinusFragmentDirections.actionMinusFragmentToAnswerFragment(result)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

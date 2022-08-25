@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.hexademical.app2.databinding.FragmentAnswerBinding
 import com.hexademical.app2.databinding.FragmentHomeBinding
 
@@ -43,6 +44,23 @@ class AnswerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        var bundle = arguments
+        if(bundle == null){
+            return
+        }
+
+        var args = AnswerFragmentArgs.fromBundle(bundle)
+        if(args.resultNumber.isNullOrBlank()){
+            binding?.resultNumber?.text = "0.0"
+        }else{
+            binding?.resultNumber?.text = args.resultNumber
+        }
+
+        binding?.restartBtn?.setOnClickListener {
+            val action = AnswerFragmentDirections.actionAnswerFragmentToHomeFragment()
+            view.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
