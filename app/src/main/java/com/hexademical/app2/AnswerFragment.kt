@@ -38,7 +38,7 @@ class AnswerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAnswerBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_answer, container, false)
+        return binding?.root
     }
 
     override fun onDestroyView() {

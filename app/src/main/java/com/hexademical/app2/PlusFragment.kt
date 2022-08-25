@@ -37,7 +37,7 @@ class PlusFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPlusBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_plus, container, false)
+        return binding?.root
     }
 
     override fun onDestroyView() {

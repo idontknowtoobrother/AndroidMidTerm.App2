@@ -37,7 +37,7 @@ class MinusFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMinusBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_minus, container, false)
+        return binding?.root
     }
 
     override fun onDestroyView() {
