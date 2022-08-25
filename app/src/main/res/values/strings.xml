@@ -5,4 +5,5 @@
     <string name="plus_btn_label">Plus Section</string>
     <string name="minus_btn_label">Minus Section</string>
     <string name="equal_label">Equal Section</string>
+    <string name="restart_label">Restart</string>
 </resources>
