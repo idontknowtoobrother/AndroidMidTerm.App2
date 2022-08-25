@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
         }
 
         binding?.minusBtn?.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToPlusFragment()
+            val action = HomeFragmentDirections.actionHomeFragmentToMinusFragment()
             view.findNavController().navigate(action)
         }
     }
